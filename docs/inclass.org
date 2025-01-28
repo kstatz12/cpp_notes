@@ -1,0 +1,47 @@
+#+title: InClass
+* Notes
+#+BEGIN_SRC c
+// function called main, return type int. No arguments
+int main()
+{
+}
+#+END_SRC
+
+#+BEGIN_SRC c
+#include <stdio.h> //includes the stdio header
+#+END_SRC
+
+compile a c file with an output file named app
+#+BEGIN_SRC shell
+cc {filename}.c -o app
+#+END_SRC
+
+
+#+BEGIN_SRC c
+int int_sum(int a, int b)
+{
+    return a + b;
+}
+
+int sum = 0;
+    for(int i = 0; i < 100; i++)
+    {
+        sum = int_sum(sum, i);
+    }
+
+    printf("%d\n", sum);
+
+
+#+END_SRC
+
+#+BEGIN_SRC c
+void print_string(char p[])
+{
+    char curr = p[0];
+    while(curr != '\0')
+    {
+        putchar(curr);
+        curr++;
+    }
+}
+#+END_SRC
