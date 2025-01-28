@@ -1,43 +1,73 @@
 #+title: InClass
 * Notes
+
+** entrypoints
+All C programs ~must~ start with a main function. there are 2 common variations
 #+BEGIN_SRC c
 // function called main, return type int. No arguments
+//this is the simplest of the main functions
 int main()
 {
+    return 0;
+}
+
+//argc represents the amount of args passed to the program
+//argv is an array of character arrays reprsenting the values of the args
+int main(int argc, char** argv)
+{
+    return 0;
 }
 #+END_SRC
 
+good tip: if you dont expect/support command line args, ommit the arguments from your main method because code
+style checkers will yell at you about unused variables
+
+
+** includes
+
+Including header files is the defacto way to include other projects/files/functions in your project
 #+BEGIN_SRC c
 #include <stdio.h> //includes the stdio header
 #+END_SRC
 
-compile a c file with an output file named app
-#+BEGIN_SRC shell
-cc {filename}.c -o app
-#+END_SRC
+** functions
 
-
+all functions have to have
+- a return type (void is the abscence of a return value)
+- a unique name
+- and arguments
 #+BEGIN_SRC c
+
+//function that takes no arguments
+//returns nothing
+void foo(void)
+{
+
+}
+
+//takes in 2 integer args
+//returns an integer
 int int_sum(int a, int b)
 {
     return a + b;
 }
-
-int sum = 0;
-    for(int i = 0; i < 100; i++)
-    {
-        sum = int_sum(sum, i);
-    }
-
-    printf("%d\n", sum);
-
-
 #+END_SRC
 
+functions taking array arguments can be defined as an array or a raw pointer
 #+BEGIN_SRC c
 void print_string(char p[])
 {
     char curr = p[0];
+    while(curr != '\0')
+    {
+        putchar(curr);
+        curr++;
+    }
+}
+
+void print_string(char *p)
+{
+   char curr = p[0];
     while(curr != '\0')
     {
         putchar(curr);
